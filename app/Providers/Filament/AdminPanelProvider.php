@@ -24,19 +24,27 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->id('admin')
-            ->path('admin')
-            ->login()
+            ->id('admin') // 运行 php artisan filament:install --panels 时设置的 ID,可自行修改
+            ->path('admin') // 路由前缀，可自行修改
+            ->brandName('FilamentDemo') // 系统名称
+            ->brandLogo(null) // Logo 路径
+            ->brandLogoHeight(null) // Logo 高度
+            ->login() // 登录页面
+            ->registration() // 注册页面
+            ->passwordReset() // 找回密码
+            ->emailVerification() // 验证邮箱
+            //->sidebarCollapsibleOnDesktop() // 桌面端浏览器访问时折叠侧导航栏，但是会显示导航图标
+            ->sidebarFullyCollapsibleOnDesktop() // 完全折叠侧导航栏
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Amber, // 主色调
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
-            ->pages([
+            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources') // 资源（Resource）目录，app/Filament/Resources
+            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages') // 页面（Page）目录, app/Filament/Pages
+            ->pages([ // 框架提供的默认页面
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
-            ->widgets([
+            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets') // 小部件（Widget）目录，app/Filament/Widgets
+            ->widgets([ // 框架提供的默认小部件
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
             ])
