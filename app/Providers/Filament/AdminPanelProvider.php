@@ -26,6 +26,7 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin') // 运行 php artisan filament:install --panels 时设置的 ID,可自行修改
             ->path('admin') // 路由前缀，可自行修改
+            ->authGuard('admin')
             ->brandName('FilamentDemo') // 系统名称
             ->brandLogo(null) // Logo 路径
             ->brandLogoHeight(null) // Logo 高度
