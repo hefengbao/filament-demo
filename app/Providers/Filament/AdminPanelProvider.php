@@ -39,12 +39,12 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber, // 主色调
             ])
-            ->discoverResources(in: app_path('Filament/AdminUser/Resources'), for: 'App\\Filament\\AdminUser\\Resources') // 资源（Resource）目录，app/Filament/Resources
-            ->discoverPages(in: app_path('Filament/AdminUser/Pages'), for: 'App\\Filament\\AdminUser\\Pages') // 页面（Page）目录, app/Filament/Pages
+            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources') // 资源（Resource）目录，app/Filament/Resources
+            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages') // 页面（Page）目录, app/Filament/Pages
             ->pages([ // 框架提供的默认页面
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/AdminUser/Widgets'), for: 'App\\Filament\\AdminUser\\Widgets') // 小部件（Widget）目录，app/Filament/Widgets
+            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets') // 小部件（Widget）目录，app/Filament/Widgets
             ->widgets([ // 框架提供的默认小部件
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
