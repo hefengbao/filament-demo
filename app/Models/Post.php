@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,12 +14,13 @@ class Post extends Model
 
     protected $casts = [
         'tags' => 'array',  // 文档 https://filamentphp.com/docs/3.x/forms/fields/tags-input
-        'published_at' => 'datetime'
+        'published_at' => 'datetime',
+        'status' => Status::class
     ];
 
     public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function category(): BelongsTo
